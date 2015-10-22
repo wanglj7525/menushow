@@ -4,3 +4,6 @@
 .title_text_color{
 	color: white;
 }
+.errorshow {
+	box-shadow: 0 0 5px rgb(250,0,0);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="/public/lib/jquerymobile/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="/public/stylesheets/main.css">
+<script src="/public/lib/jquerymobile/jquery.js"></script>
+<script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
+</head>
+<script type="text/javascript">
+$(function () {
+		$(document).on('blur', 'input', function () {
+		    if ($(this).closest('div').hasClass('errorshow')&&$(this).val().trim().length>0) {
+		        $(this).closest('div').removeClass('errorshow');
+		    }
+		});
+	  	
+		$("#loginbtn").click(function(){
+			var username=$("#username").val();
+			if(username.trim().length==0){
+				$("#username").closest('div').addClass("errorshow");
+				return;
+			}else{
+				$("#username").closest('div').removeClass("errorshow");
+			}
+			var password=$("#password").val();
+			if(password.trim().length==0){
+				$("#password").closest('div').addClass("errorshow");
+				return;
+			}else{
+				$("#password").closest('div').removeClass("errorshow");
+			}
+			
+			 $.ajax({  
+                      type: "POST",  
+                      url: "/login",  
+                      data: $('#loginform').serialize(),  
+                      success:function(data){  
+                      		console.log(data.info.id);
+                            $.mobile.changePage("/store/index?id="+data.info.id);  
+                      },
+                      error:function(data){
+                      		console.log(data);
+                      }  
+                });  
+		});
+	});
+</script>
+<body>
+	<div data-role="page" id="pageone">
+		<div data-role="header" style="background-color: #191970">
+			<h1 id="titlename" class="title_text_color">登录</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<form  method="post" id="loginform">
+				<input type="text" name="username" id="username" placeholder="请输入用户名..."> 
+				<input type="password" name="password" id="password" placeholder="请输入密码..."> 
+				<input type="button" id="loginbtn" value="登录"> 
+				<a href="#pagetwo" data-role="button" data-transition="slide">注册</a>
+			</form>
+		</div>
+	</div>
+
+	<div data-role="page" id="pagetwo">
+		<div data-role="header" style="background-color: #191970">
+			<h1 id="titlename" class="title_text_color">注册</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<input type="text" name="username" id="username"
+				placeholder="请输入用户名..."> <input type="text" name="password"
+				id="password" placeholder="请输入密码..."> <input type="text"
+				name="againpassword" id="againpassword" placeholder="请再次输入密码...">
+			<a href="#pageone" data-role="button" data-transition="slide">注册</a>
+		</div>
+	</div>
+</body>
+</html>
