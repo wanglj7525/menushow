@@ -50,13 +50,71 @@
 		    </div>
 		<div data-role="footer" style="text-align:center;" data-position="fixed">
 		  <div data-role="controlgroup" data-type="horizontal">
-		    <a href="#" class="ui-btn ui-icon-grid ui-btn-icon-left">门店报表</a>
+		    <a href="#reportpage" class="ui-btn ui-icon-grid ui-btn-icon-left">门店报表</a>
 		    <a href="#" data-rel="popup" class="ui-btn ui-icon-plus ui-btn-icon-left" onclick="showAdd()">新增</a>
 		    <a href="#" data-rel="popup" class="ui-btn ui-icon-delete ui-btn-icon-left" onclick="showDelete()">删除</a>
 		    <a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left" onclick="showUpdate()">修改</a>
 		  </div>
 		</div> 
 	</div>
-
+		<div data-role="page" id="reportpage">
+			<div data-role="header" style="background-color: #191970" data-position="fixed">
+				<button>返回</button>
+				<h1 id="titlename" class="title_text_color">门店营运助理</h1>
+			</div>
+		  <div data-role="main" class="ui-content">
+		    <ul data-role="listview" data-inset="true">
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/chrome.png">
+		        <h2>门店营业概况</h2>
+		        <p>包括营业汇总，交款及收银支付等信息</p>
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/firefox.png">
+		        <h2>大类销售统计</h2>
+		        <p>大类/小类-销售数量及金额分组统计</p>
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/firefox.png">
+		        <h2>类别销售统计</h2>
+		        <p>大类、小类、数量、金额，文本样式</p>
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/firefox.png">
+		        <h2>月营业走势</h2>
+		        <p>日期、客单数、来客数、销售额</p>
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/firefox.png">
+		        <h2>付款方式统计</h2>
+		        <p>付款方式、金额，饼图</p>
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/firefox.png">
+		        <h2>单品销售排行</h2>
+		        <p>品名、数量、金额、占比，文本样式</p>
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#">
+		        <img src="/public/images/firefox.png">
+		        <h2>门店销售排行</h2>
+		        <p>店名、客单数、销售金额</p>
+		        </a>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
 </body>
 </html>
