@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>index.html</title>
-	
-    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-    <meta http-equiv="description" content="this is my page">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="/public/lib/jquerymobile/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="/public/stylesheets/main.css">
+<script src="/public/lib/jquerymobile/jquery.js"></script>
+<script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
+</head>
 
-  </head>
-  
-  <body>
-  ${id}
-  </body>
+<body>
+	<div data-role="page" id="pagestore">
+		<div data-role="header" style="background-color: #191970" data-position="fixed">
+			<h1 id="titlename" class="title_text_color">门店管理</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<fieldset data-role="controlgroup">
+			#{if store.size()==0}
+		      <legend>暂无门店列表</legend>
+			#{/if}
+			#{else}
+		      <legend>请选择门店：</legend>
+			#{/else}
+				#{list items:store,as:'onestore'}
+			        <label for="store_${onestore.id}">${onestore.sName}</label>
+			        <input type="radio" name="store" id="store_${onestore.id}" value="${onestore.id}">
+				#{/list}
+		      </fieldset>
+		</div>
+		 <div data-role="popup" id="addStore" class="ui-content" style="min-width:250px;">
+		      <form method="post" id="addform">
+				 <div data-role="header" style="background-color: #191970" >
+					<h3 id="titlename" class="title_text_color">添加门店</h3>
+				</div>
+		        <div>
+		          <input type="text" name="s_name" id="s_name" placeholder="请输入门店名称">
+		          <input type="text" name="dog_id" id="dog_id" placeholder="请输入加密狗号码">
+		          <input type="password" name="pswd" id="pswd" placeholder="请输入登录密码">
+		          <input type="button" id="addbtn" value="确定" onclick="addStore()">
+		        </div>
+		      </form>
+		    </div>
+		<div data-role="footer" style="text-align:center;" data-position="fixed">
+		  <div data-role="controlgroup" data-type="horizontal">
+		    <a href="#" class="ui-btn ui-icon-grid ui-btn-icon-left">门店报表</a>
+		    <a href="#addStore" data-rel="popup" class="ui-btn ui-icon-plus ui-btn-icon-left">新增</a>
+		    <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-left">删除</a>
+		    <a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left">修改</a>
+		  </div>
+		</div> 
+	</div>
+
+</body>
 </html>

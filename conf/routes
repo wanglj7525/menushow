@@ -8,11 +8,21 @@ GET     /                                       Application.index
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
+#登录页
 GET		/index									Login.index
 
+#登录
 POST	/login									Login.login
 
+#注册
+POST	/regester								Login.regester
+
+#门店管理页
 GET 	/store/index							StoreManage.index
+
+#添加门店
+POST	/store/add								StoreManage.add
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
