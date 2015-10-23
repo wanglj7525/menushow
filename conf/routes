@@ -23,6 +23,9 @@ GET 	/store/index							StoreManage.index
 #添加门店
 POST	/store/add								StoreManage.add
 
+#删除门店
+POST	/store/delete							StoreManage.deleteStore
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 

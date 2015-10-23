@@ -77,5 +77,19 @@ public class SqlModel {
 			return 0;
 		}
 	}
+	public static Integer updateStoreInfo(Integer s_id,String s_name,String dog_id) {
+		t_store tu = t_store.find(" s_name=? and id<> ?", s_name,s_id).first();
+		if (tu != null) {
+			return -1;
+		}
+		t_store store = t_store.findById(s_id);
+		store.s_name=s_name;
+		store.dog_id=dog_id;
+		if (store.save().isPersistent()) {
+			return store.id;
+		} else {
+			return 0;
+		}
+	}
 
 }
