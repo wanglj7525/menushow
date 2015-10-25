@@ -31,8 +31,8 @@ function login(){
               	if(data.result=="error"){
               		alert(data.msg);
               	}else{
-              	console.log(data.info);
-                    $.mobile.changePage("/store/index?id="+data.info.id);  
+              		window.location = "/store/index?id="+data.info.id;
+//                    $.mobile.changePage("/store/index?id="+data.info.id);  
               	}
               },
               error:function(data){
@@ -73,7 +73,8 @@ function register(){
               	if(data.result=="error"){
               		alert(data.msg);
               	}else{
-                    $.mobile.changePage("/store/index?id="+data.info);  
+              		window.location = "/store/index?id="+data.info;
+//                    $.mobile.changePage("/store/index?id="+data.info);  
               	}
               },
               error:function(data){
@@ -85,6 +86,7 @@ function hiderror(id){
 	$("#"+id).closest('div').removeClass("errorshow");
 }
 function addStore() {
+	var t_id=$("#us_id").val();
 	var s_name = $("#s_name").val();
 	if (s_name.trim().length == 0) {
 		$("#s_name").closest('div').addClass("errorshow");
@@ -118,12 +120,18 @@ function addStore() {
 			if (data.result == "error") {
 				alert(data.msg);
 			} else {
-				console.log(data);
 				$.mobile.changePage("#pagestore", {
 					'allowSamePageTransition' : true,
 					'reloadPage' : true,
 					'transition' : 'none'
 				});
+				if(t_id!=-1){
+					$.mobile.changePage("#pagestore", {
+						'allowSamePageTransition' : true,
+						'reloadPage' : true,
+						'transition' : 'none'
+					});
+				}
 			}
 		},
 		error : function(data) {
@@ -195,4 +203,8 @@ function showAdd(){
 	$("#s_name").val("");
 	$("#dog_id").val("");
 	$("#addStore").popup('open');
+}
+function check(listid){
+	var selectStore=$("input[name='store']:checked").val(); 
+    $.mobile.changePage("/store/first?s_id="+selectStore);  
 }
