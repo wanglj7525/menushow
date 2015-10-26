@@ -1,0 +1,43 @@
+<input type="hidden" name="user.id" id="id_update" value="${info?.id}"/>
+<div class="control-group">
+	<label class="control-label">姓名</label>
+	<div class="input-append">
+		<input class="span4" type="text" name="user.name" id="name_update" value="${info?.name}">
+	</div>
+</div>
+<!-- <div class="control-group">
+   <label class="control-label">登录名</label>
+   <div class="input-append">
+  	   <input class="span4" type="text" name="user.user_name" id="username_update" value="${info?.user_name}">
+   </div>
+</div> -->
+<div class="control-group">
+   <label class="control-label">重置密码</label>
+   <div class="input-append">
+  	    <label class="radio" style="display:inline-block; margin:0 10px 0 10px;">
+           <input type="radio" name="user.reset_pwd" id="optionsRadios1" value="0" checked>
+                             否
+         </label>
+         <label class="radio" style="display:inline-block; margin-right:10px;">
+           <input type="radio" name="user.reset_pwd" id="optionsRadios1" value="1">
+                             是
+         </label>
+   </div>
+</div>
+<div class="control-group">
+	<label class="control-label">科室</label>
+	<div class="input-append">
+		<select name="user.department_id">
+			<option value="0"></option>
+			#{list deptList, as : 'dept'}
+				<option value="${dept.id}" ${info?.department_id==dept.id?'selected':''}>${dept.name}</option>
+			#{/list}
+		</select>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">电话</label>
+	<div class="input-append">
+		<input class="span4" type="text" name="user.phone" value="${info?.phone}">
+	</div>
+</div>

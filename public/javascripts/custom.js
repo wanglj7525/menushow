@@ -25,7 +25,7 @@ function login(){
 	
 	 $.ajax({  
               type: "POST",  
-              url: "/login",  
+              url: "/app/login",  
               data: $('#loginform').serialize(),  
               success:function(data){  
               	if(data.result=="error"){

@@ -1,8 +1,10 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
-			<div class="logo">
+			<div class="logo"><span style="font-size: 20px;color: white;">门店管理系统后台管理系统</span>
+			<!-- 
 				<a href="/"><img src="/public/assets/img/logo.png" ></a>
+			 -->
 			</div>
 			<a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
@@ -30,7 +32,7 @@
 				</ul>
 				<ul class="pull-right">
 					<li>
-						<a href="#" data-toggle="modal" data-target="#userSet">欢迎您：  ${user.name}</a>
+						<a href="#" data-toggle="modal" data-target="#userSet">欢迎您：  ${username}</a>
 					</li>
 					<li>
 						<a href="/logout">
@@ -64,62 +66,6 @@
 	</div>
 </div>
 
-	<!-- userSet modal -->
-    <div id="userSet" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		        <h3>用户设置</h3>
-	      </div>
-	      <div class="modal-body">
-	      	  <div class="widget-forms clearfix">
-	        	<form class="form-horizontal" id="form_userset">
-	        		<input type="hidden" id="userId_set" name="userset.id" value="${user.id}">
-                    <div class="control-group">
-                       <label class="control-label">姓名</label>
-                       <div class="input-append">
-                      	   <input class="span4" type="text" id="name_set" name="userset.name" value="${user.name}">
-                       </div>
-                    </div>
-                    <div class="control-group">
-                       <label class="control-label">电话</label>
-                       <div class="input-append">
-                      	   <input class="span4" type="text" name="userset.phone" value="${user.phone}">
-                       </div>
-                    </div>
-                    <!-- <div class="control-group">
-                       <label class="control-label">登录名</label>
-                       <div class="input-append">
-                      	   <input class="span4" type="text" id="username_set" name="userset.user_name" value="${user.user_name}">
-                       </div>
-                    </div> -->
-                    <div class="control-group">
-                       <label class="control-label">原始密码</label>
-                       <div class="input-append">
-                      	   <input class="span3" type="password" id="password_old_set" name="userset.old_password">
-                       </div>
-                    </div>
-                    <div class="control-group">
-                       <label class="control-label">新密码</label>
-                       <div class="input-append">
-                      	   <input class="span3" type="password" id="password_set" name="userset.new_password">
-                       </div>
-                    </div>
-                    <div class="control-group">
-                       <label class="control-label">确认密码</label>
-                       <div class="input-append">
-                      	   <input class="span3" type="password" id="confirm_password" name="userset.confirm_password">
-                       </div>
-                    </div>
-                    
-              </form>
-              </div>
-	      </div>
-	      <div class="modal-footer">
-		        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-		        <button class="btn btn-primary" id="userSetBtn">保存</button>
-	      </div>
-    </div> 
-    <!-- userSet modal -->
     
     <script>
 	    $(function() {
