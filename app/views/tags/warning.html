@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<div id="alarmingBox" style="font-size:12px;">
+	<div id="alarmingHead">
+		<i class="alarmingTag"></i>
+		<div id="alarmingOperation">
+			<i class="alarmingConfig" onclick="showConfigAlarmingBox()"></i>
+			<i class="alarmingMinus" onclick="minusAlarmingBox()"></i>
+			<i class="alarmingClose" onclick="closeAlarmingBox()"></i>
+		</div>
+	</div>
+	<div id="alarmingBody">
+		<!--<table>
+			<thead>
+			<tr>
+				<td>告警时间</td>
+				<td>内容</td>
+				<td>账号</td>
+				<td>类型</td>
+				<td>级别</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="alarmingNull">
+				<td colspan="5">暂时没有告警消息</td>
+			</tr>
+			</tbody>
+		</table>-->
+		<div id="alarmingSimple">
+			<script>
+				loadpage("#alarmingSimple","/Alarm/alarmSratis");
+			</script>
+		</div>
+	</div>
+</div>
+<div id="minusAlarming" onclick="renewAlarmingBox()">
+
+</div>

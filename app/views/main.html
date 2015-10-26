@@ -3,14 +3,57 @@
 <html>
     <head>
         <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="author" content="xckouy">
+	    <link href="@{'/public/images/favicon.png'}" rel="Favicon Icon" type="image/x-icon">
+	    <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet">
+	    <link href="@{'/public/assets/css/theme.css'}" rel="stylesheet">
+	    <link href="@{'/public/assets/css/font-awesome.min.css'}" rel="stylesheet">
+	    <link href="@{'/public/assets/css/alertify.css'}" rel="stylesheet">
+	    <link href="@{'/public/assets/css/select2.css'}" rel="stylesheet">
+	    #{get 'moreStyles' /}
+	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	    <!--[if lt IE 9]>
+	      	<script src="/public/assets/js/html5.js"></script>
+	    <![endif]-->
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.min.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/javascripts/jquery.validate.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/javascripts/jquery_validator_addfunction.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/javascripts/public.js'}"></script>
     </head>
     <body>
-        #{doLayout /}
+     	<div id="wrap">
+	    	#{include 'tags/navbar.html'/}
+
+    		<div class="container-fluid">
+     			#{include 'tags/sidebar.html'/}
+
+      			<!-- Main window -->
+      			<div id="main">	
+    				#{get 'main_content' /}    *{主要内容区域，需要被继承页面实现此标签的set部分}*
+     			</div>
+      			<!-- /Main window -->
+      
+    		</div><!--/.fluid-container-->
+   		</div><!-- wrap ends-->
+    	
+    	<!-- <script type="text/javascript" src="@{'/public/assets/js/jquery.min.js'}"></script> -->
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery-ui.min.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/raphael-min.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/bootstrap.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/sparkline.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/morris.min.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.dataTables.min.js'}"></script>   
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.masonry.min.js'}"></script>   
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.imagesloaded.min.js'}"></script>   
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.facybox.js'}"></script>   
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.alertify.min.js'}"></script> 
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.knob.min.js'}"></script>
+	    <script type='text/javascript' src="@{'/public/assets/js/fullcalendar.min.js'}"></script>
+	    <script type='text/javascript' src="@{'/public/assets/js/jquery.gritter.min.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/jquery.slimscroll.min.js'}"></script>
+	    <script type="text/javascript" src="@{'/public/assets/js/select2.min.js'}"></script>
+	    #{get 'moreScripts' /}
     </body>
 </html>

@@ -1,0 +1,184 @@
+<!-- Side menu -->
+<style>
+.submenu{
+	padding-left: 10px;
+}
+</style>
+<div class="sidebar-nav nav-collapse collapse">
+	<div class="user_side clearfix hide">
+		<img src="/public/assets/img/odinn.jpg" alt="Odinn god of Thunder">
+		<h5>标题</h5>
+		<a href="#">
+			<i class="icon-cog"></i> 用户设置
+		</a>
+	</div>
+	<div class="accordion" id="accordion2">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_9FDDF6 ${request.controller!='UserManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse10">
+					<i class="icon-user"></i>
+					<span>用户管理</span>
+				</a>
+			</div>
+			<div id="collapse10" class="accordion-body ${request.controller!='UserManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/user'?'active':''}" href="/user">
+						<i class="icon-th-list"></i> 用户列表
+					</a>
+					<a class="accordion-toggle ${request.url=='/department'?'active':''}" href="/department">
+						<i class="icon-th-large"></i> 科室列表
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_9FDDF6 ${request.controller!='TaskManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse11">
+					<i class="icon-tasks"></i>
+					<span>任务管理</span>
+				</a>
+			</div>
+			<div id="collapse11" class="accordion-body ${request.controller!='TaskManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/task_page'?'active':''}" href="/task_page">
+						<i class="icon-th-list"></i> 任务列表
+					</a>
+					<a class="accordion-toggle ${request.url=='/addTaskPage'?'active':''}" href="/addTaskPage">
+						<i class="icon-plus-sign"></i> 添加任务
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_C3F7A7 ${request.controller!='MsgManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse20">
+					<i class="icon-envelope"></i>
+					<span>消息管理</span>
+				</a>
+			</div>
+			<div id="collapse20" class="accordion-body ${request.controller!='MsgManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/msg_page'?'active':''}" href="/msg_page">
+						<i class="icon-th-list"></i> 消息列表
+					</a>
+					<a class="accordion-toggle ${request.url=='/addMsgPage'?'active':''}" href="/addMsgPage">
+						<i class="icon-edit"></i> 发送消息
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_F5C294 ${request.controller!='NoticeManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse30">
+					<i class="icon-signin"></i>
+					<span>通知管理</span>
+				</a>
+			</div>
+			<div id="collapse30" class="accordion-body ${request.controller!='NoticeManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/notice_page'?'active':''}" href="/notice_page">
+						<i class="icon-th-list"></i> 通知列表
+					</a>
+					<a class="accordion-toggle ${request.url=='/addNoticePage'?'active':''}" href="/addNoticePage">
+						<i class="icon-upload"></i> 发送通知
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_F5C294 ${request.controller!='LawManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse40">
+					<i class="icon-home"></i>
+					<span>区域工程</span>
+				</a>
+			</div>
+			<div id="collapse40" class="accordion-body ${request.controller!='LawManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/lawstatis_page'?'active':''}" href="/lawstatis_page">
+						<i class="icon-indent-right"></i> 工程管理
+					</a>
+					<a class="accordion-toggle ${request.url=='/region_page'?'active':''}" href="/region_page">
+						<i class="icon-indent-right"></i> 区域管理
+					</a>
+				</div>
+			</div>
+		</div> -->
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_F5C294 ${request.controller!='ProjectManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse40">
+					<i class="icon-th"></i>
+					<span>统计分析</span>
+				</a>
+			</div>
+			<div id="collapse40" class="accordion-body ${request.controller!='ProjectManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/project_page'?'active':''}" href="/project_page">
+						<i class="icon-th-list"></i> 工程管理
+					</a>
+					<a class="accordion-toggle ${request.url=='/region_page'?'active':''}" href="/region_page">
+						<i class="icon-globe"></i> 区域管理
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_F5C294 ${request.controller!='UnitManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse60">
+					<i class="icon-inbox"></i>
+					<span>单位管理</span>
+				</a>
+			</div>
+			<div id="collapse60" class="accordion-body ${request.controller!='UnitManage'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/build_page'?'active':''}" href="/build_page">
+						<i class="icon-align-left"></i> 建设单位
+					</a>
+					<a class="accordion-toggle ${request.url=='/construction_page'?'active':''}" href="/construction_page">
+						<i class="icon-align-center"></i> 施工单位
+					</a>
+					<a class="accordion-toggle ${request.url=='/supervise_page'?'active':''}" href="/supervise_page">
+						<i class="icon-align-right"></i> 监理单位
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_F5C294 ${request.controller!='OnlineApp'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse50">
+					<i class="icon-retweet"></i>
+					<span>无线应用</span>
+				</a>
+			</div>
+			<div id="collapse50" class="accordion-body ${request.controller!='OnlineApp'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/app_download'?'active':''}" href="/app_download">
+						<i class="icon-qrcode"></i> APP下载
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle b_F5C294 ${request.controller!='RealTimeMonitor'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse70">
+					<i class="icon-facetime-video"></i>
+					<span>实时监控</span>
+				</a>
+			</div>
+			<div id="collapse70" class="accordion-body ${request.controller!='RealTimeMonitor'?'':'in'} collapse">
+				<div class="accordion-inner submenu">
+					<a class="accordion-toggle ${request.url=='/realtime_page'?'active':''}" href="/realtime_page">
+						<i class="icon-bell"></i> 监控
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Side menu -->

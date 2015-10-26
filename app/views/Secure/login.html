@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="xckouy">
+<link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet">
+<link href="@{'/public/assets/css/theme.css'}" rel="stylesheet">
+<link href="@{'/public/assets/css/font-awesome.min.css'}" rel="stylesheet">
+<link href="@{'/public/assets/css/alertify.css'}" rel="stylesheet">
+<link rel="Favicon Icon" href="@{'/public/images/favicon.png'}" type="image/x-icon">
+<link href="@{'/public/assets/css/select2.css'}" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="@{'/public/javascripts/html5.js'}"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="wrap">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="row-fluid">
+						<div class="widget container-narrow">
+							<div class="widget-header">
+								<i class="icon-user"></i>
+								<h5 style="font-family: inherit;">门店管理系统的后台管理系统</h5>
+							</div>
+							<div class="widget-body clearfix" style="padding: 25px;">
+								#{if flash.error}
+									<div class="msg_box msg_error">
+										&{flash.error}
+									</div>
+								#{/if}
+								#{if flash.success}
+									<div class="msg_box msg_ok">
+										&{flash.success}
+									</div>
+								#{/if}
+								#{form @authenticate(),id:'form'}
+									<div class="control-group">
+										<div class="controls">
+											<input class="btn-block" type="text" id="username" name="username" placeholder="请输入用户名" value="${flash.username}">
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="controls">
+											<input class="btn-block" type="password" name="password" id="password" placeholder="请输入密码">
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="controls clearfix">
+											<!-- <label style="width: auto" class="checkbox pull-left"> 
+											<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''}> Remember me
+											</label> -->
+											<!-- <a style="padding: 5px 0px 0px 5px;" href="#" class="pull-right">Forgot Password?</a> -->
+										</div>
+									</div>
+									<button type="submit" class="btn pull-right">登录</button>
+								#{/form}
+							</div>
+						</div>
+					</div>
+					<!--/row-fluid-->
+				</div>
+				<!--/span10-->
+			</div>
+			<!--/row-fluid-->
+		</div>
+		<!--/.fluid-container-->
+	</div>
+	<!-- wrap ends-->
+</body>
+</html>

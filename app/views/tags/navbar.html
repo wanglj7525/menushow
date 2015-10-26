@@ -1,0 +1,237 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<div class="logo">
+				<a href="/"><img src="/public/assets/img/logo.png" ></a>
+			</div>
+			<a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="btn btn-navbar slide_menu_left visible-tablet">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+
+			<div class="top-menu visible-desktop">
+				<ul class="pull-left">
+					<!-- <li>
+						<a id="messages" data-notification="12" href="#">
+							<i class="icon-envelope"></i> 消息
+						</a>
+					</li>
+					<li>
+						<a id="notifications" data-notification="3" href="#">
+							<i class="icon-globe"></i> 通知
+						</a>
+					</li> -->
+				</ul>
+				<ul class="pull-right">
+					<li>
+						<a href="#" data-toggle="modal" data-target="#userSet">欢迎您：  ${user.name}</a>
+					</li>
+					<li>
+						<a href="/logout">
+							<i class="icon-off"></i> 退出
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="top-menu visible-phone visible-tablet">
+				<ul class="pull-right">
+					<li>
+						<a title="link to View all Messages page, no popover in phone view or tablet" href="#">
+							<i class="icon-envelope"></i>
+						</a>
+					</li>
+					<li>
+						<a title="link to View all Notifications page, no popover in phone view or tablet" href="#">
+							<i class="icon-globe"></i>
+						</a>
+					</li>
+					<li>
+						<a href="login.html">
+							<i class="icon-off"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+	<!-- userSet modal -->
+    <div id="userSet" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		        <h3>用户设置</h3>
+	      </div>
+	      <div class="modal-body">
+	      	  <div class="widget-forms clearfix">
+	        	<form class="form-horizontal" id="form_userset">
+	        		<input type="hidden" id="userId_set" name="userset.id" value="${user.id}">
+                    <div class="control-group">
+                       <label class="control-label">姓名</label>
+                       <div class="input-append">
+                      	   <input class="span4" type="text" id="name_set" name="userset.name" value="${user.name}">
+                       </div>
+                    </div>
+                    <div class="control-group">
+                       <label class="control-label">电话</label>
+                       <div class="input-append">
+                      	   <input class="span4" type="text" name="userset.phone" value="${user.phone}">
+                       </div>
+                    </div>
+                    <!-- <div class="control-group">
+                       <label class="control-label">登录名</label>
+                       <div class="input-append">
+                      	   <input class="span4" type="text" id="username_set" name="userset.user_name" value="${user.user_name}">
+                       </div>
+                    </div> -->
+                    <div class="control-group">
+                       <label class="control-label">原始密码</label>
+                       <div class="input-append">
+                      	   <input class="span3" type="password" id="password_old_set" name="userset.old_password">
+                       </div>
+                    </div>
+                    <div class="control-group">
+                       <label class="control-label">新密码</label>
+                       <div class="input-append">
+                      	   <input class="span3" type="password" id="password_set" name="userset.new_password">
+                       </div>
+                    </div>
+                    <div class="control-group">
+                       <label class="control-label">确认密码</label>
+                       <div class="input-append">
+                      	   <input class="span3" type="password" id="confirm_password" name="userset.confirm_password">
+                       </div>
+                    </div>
+                    
+              </form>
+              </div>
+	      </div>
+	      <div class="modal-footer">
+		        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+		        <button class="btn btn-primary" id="userSetBtn">保存</button>
+	      </div>
+    </div> 
+    <!-- userSet modal -->
+    
+    <script>
+	    $(function() {
+	    	$("#form_userset").validate({
+		        rules: {
+		            "userset.name": {
+		          	   required: true,
+			         	   remote:{
+			 	       				url: "/UserManage/nameIsExist",
+			 	       				type:'post',
+			 	       				data:{
+			    	       					name:function(){
+			    	       						return $("#name_set").val();
+			    	       					},
+			      	       					id: function(){
+			  	       						    return $("#userId_set").val();
+			      	       					}
+			 	       				}
+			    			}
+					},
+		            /*"userset.user_name": {
+		          	   required: true,
+		         	   remote:{
+		 	       				url: "/UserManage/usernameIsExist",
+		 	       				type:'post',
+		 	       				data:{
+		    	       					username:function(){
+		    	       						return $("#username_set").val();
+		    	       					},
+		      	       					id: function(){
+		  	       						    return $("#userId_set").val();
+		      	       					}
+		 	       				}
+		    				}
+		    	   },*/
+		    	   "userset.old_password": {
+		         	   remote:{
+		 	       				url: "/UserManage/passwordIsExist",
+		 	       				type:'post',
+		 	       				data:{
+		 	       						password:function(){
+		    	       						return $("#password_old_set").val();
+		    	       					},
+		      	       					id: function(){
+		  	       						    return $("#userId_set").val();
+		      	       					}
+		 	       				}
+		    				}
+		    	   },
+		    	    "userset.new_password": {
+		    	        minlength: 5
+		    	    },
+		    	    "userset.confirm_password": {
+		    	        equalTo: "#password_set"
+		    	    },
+		            "userset.phone": {
+		                required: true
+		            }
+		        },
+		        messages: {
+		        	"userset.name": {
+		                required: "请输入姓名",
+		                remote: "姓名已经存在!"
+		            },
+		            /*"userset.user_name": {
+		                required: "请输入登录名",
+		                remote: "登录名已经存在!"
+		            },*/
+		            "userset.old_password": {
+		                remote: "密码不正确!"
+		            },
+		            "userset.new_password": {
+		                minlength: $.validator.format("密码不能小于{0}个字符")
+		            },
+		            "userset.confirm_password": {
+		                equalTo: "两次输入密码不一致不一致"
+		            },
+		            "userset.phone": {
+		                required: "请输入电话"
+		            }
+		        },
+		        errorPlacement: function(error, element) {   
+		            if (element.attr("name") == "userset.amount")  {
+		                error.appendTo($(element).parent());  
+		            } else {
+		            	error.insertAfter(element);   
+		            }
+		        }
+		     });
+	
+		   $("#userSetBtn").die().live("click", function(){
+		      		if($("#form_userset").valid()){
+		         			var params = $("#form_userset").serializeObject();
+		         			
+		         			var url = "/set_user";
+		         			$.post(url, params, function(result){
+		             				$("#userSet").modal("hide");
+		             				alert(result);
+		         			});
+		      		}
+		   	});
+		   
+		   $("#messageBtn").die().live("click", function(){
+		       $("#message").modal("hide");
+		       alert("功能待完善");
+		   });
+		   
+		   if ($('#msg_customer').length > 0) {
+	           $("#msg_customer").select2();
+		   }
+		   if ($('#msg_order').length > 0) {
+		       $("#msg_order").select2();
+		   }
+	    });
+    </script>
