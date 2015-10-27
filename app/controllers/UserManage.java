@@ -2,7 +2,7 @@ package controllers;
 
 import java.util.List;
 
-import models.t_user;
+import models.User;
 import play.mvc.Controller;
 
 public class UserManage extends Controller {
@@ -11,7 +11,7 @@ public class UserManage extends Controller {
 	}
 
 	public static void userPage() {
-		List<t_user> userList = models.UserManage.allInfos();
+		List<User> userList = models.UserManage.allInfos();
 		render(userList);
 	}
 }

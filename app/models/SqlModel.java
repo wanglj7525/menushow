@@ -3,7 +3,6 @@ package models;
 import java.util.List;
 import java.util.Map;
 
-import utils.JSONRowMapper;
 import utils.SqlHelper;
 
 public class SqlModel {
@@ -34,11 +33,11 @@ public class SqlModel {
 	 * @return
 	 */
 	public static Integer saveUserInfo(String username, String password) {
-		t_user tu = t_user.find(" u_name=? ", username).first();
+		User tu = User.find(" u_name=? ", username).first();
 		if (tu != null) {
 			return -1;
 		}
-		t_user user = new t_user();
+		User user = new User();
 		user.u_name = username;
 		user.u_pass = password;
 		user.Nf=200;
@@ -63,11 +62,11 @@ public class SqlModel {
 	}
 	
 	public static Integer addStoreInfo(String s_name,String dog_id,String userid) {
-		t_store tu = t_store.find(" s_name=? ", s_name).first();
+		Store tu = Store.find(" s_name=? ", s_name).first();
 		if (tu != null) {
 			return -1;
 		}
-		t_store store = new t_store();
+		Store store = new Store();
 		store.s_name=s_name;
 		store.dog_id=dog_id;
 		store.u_id=Long.parseLong(userid);
@@ -78,11 +77,11 @@ public class SqlModel {
 		}
 	}
 	public static Integer updateStoreInfo(Integer s_id,String s_name,String dog_id) {
-		t_store tu = t_store.find(" s_name=? and id<> ?", s_name,s_id).first();
+		Store tu = Store.find(" s_name=? and id<> ?", s_name,s_id).first();
 		if (tu != null) {
 			return -1;
 		}
-		t_store store = t_store.findById(s_id);
+		Store store = Store.findById(s_id);
 		store.s_name=s_name;
 		store.dog_id=dog_id;
 		if (store.save().isPersistent()) {

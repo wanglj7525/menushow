@@ -31,7 +31,7 @@ function login(){
               	if(data.result=="error"){
               		alert(data.msg);
               	}else{
-              		window.location = "/store/index?id="+data.info.id;
+              		window.location = "/store/index?id="+data.info.id+"#pagestore";
 //                    $.mobile.changePage("/store/index?id="+data.info.id);  
               	}
               },
@@ -73,7 +73,7 @@ function register(){
               	if(data.result=="error"){
               		alert(data.msg);
               	}else{
-              		window.location = "/store/index?id="+data.info;
+              		window.location = "/store/index?id="+data.info+"#pagestore";
 //                    $.mobile.changePage("/store/index?id="+data.info);  
               	}
               },
@@ -85,7 +85,30 @@ function register(){
 function hiderror(id){
 	$("#"+id).closest('div').removeClass("errorshow");
 }
+function showRadio(store){
+	var html="";
+	if (store.length==0){
+		html+=" <legend>暂无门店列表</legend>";
+	}else{
+		html+="<legend>请选择门店：</legend>";
+	}
+	for ( var i = 0; i < store.length; i++) {
+		var onestore = store[i];
+		html+='<label for="store_'+onestore.id+'">'+onestore.sName+'</label>';
+		if (i==0) {
+			html+='<input type="radio" name="store" checked="checked" id="store_'+onestore.id+'" value="'+onestore.id+'" attrname="'+onestore.sName+'" attrdog="'+onestore.dogId+'">';
+		}else{
+			html+='<input type="radio" name="store" id="store_'+onestore.id+'" value="'+onestore.id+'" attrname="'+onestore.sName+'" attrdog="'+onestore.dogId+'">';
+		}
+		
+	}
+	$('#showlist').html(html);
+	$("#showlist").trigger("create"); 
+	$("#addStore").popup("close");
+}
+   
 function addStore() {
+	var url=window.location.href;
 	var t_id=$("#us_id").val();
 	var s_name = $("#s_name").val();
 	if (s_name.trim().length == 0) {
@@ -120,18 +143,20 @@ function addStore() {
 			if (data.result == "error") {
 				alert(data.msg);
 			} else {
-				$.mobile.changePage("#pagestore", {
-					'allowSamePageTransition' : true,
-					'reloadPage' : true,
-					'transition' : 'none'
-				});
-				if(t_id!=-1){
-					$.mobile.changePage("#pagestore", {
-						'allowSamePageTransition' : true,
-						'reloadPage' : true,
-						'transition' : 'none'
-					});
-				}
+				showRadio(data);
+//				$.mobile.changePage("#pagestore", {
+//					'allowSamePageTransition' : true,
+//					'reloadPage' : true,
+//					'transition' : 'none',
+//					'dataUrl':url
+//				});
+//				if(t_id!=-1){
+//					$.mobile.changePage("#pagestore", {
+//						'allowSamePageTransition' : true,
+//						'reloadPage' : true,
+//						'transition' : 'none'
+//					});
+//				}
 			}
 		},
 		error : function(data) {
@@ -168,11 +193,12 @@ function showDelete(){
             			if (data.result == "error") {
             				alert(data.msg);
             			} else {
-            				$.mobile.changePage("#pagestore", {
-            					'allowSamePageTransition' : true,
-            					'reloadPage' : true,
-            					'transition' : 'none'
-            				});
+            				 showRadio(data);
+//            				$.mobile.changePage("#pagestore", {
+//            					'allowSamePageTransition' : true,
+//            					'reloadPage' : true,
+//            					'transition' : 'none'
+//            				});
             			}
             		},
             		error : function(data) {

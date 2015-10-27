@@ -1,6 +1,6 @@
 package controllers;
 
-import models.t_user;
+import models.User;
 import play.mvc.Router;
 
 /**
@@ -23,9 +23,9 @@ public class Security extends Secure.Security {
     	if(password==null||!"123456".equals(password)){
     		return false;
     	}
-    	t_user user = null;
+    	User user = null;
     	if(username!=null && !username.equals("")){
-    		user = t_user.find("u_name=?", username).first();
+    		user = User.find("u_name=?", username).first();
     	}
     	if(user!=null){
 //    		String key = UUID.randomUUID().toString();

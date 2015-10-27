@@ -16,7 +16,7 @@
 			<h1 id="titlename" class="title_text_color">门店管理</h1>
 		</div>
 		<div data-role="main" class="ui-content">
-			<fieldset data-role="controlgroup">
+			<fieldset data-role="controlgroup" id="showlist">
 			#{if store.size()==0}
 		      <legend>暂无门店列表</legend>
 			#{/if}
@@ -44,7 +44,7 @@
 		          <input type="text" name="s_name" id="s_name" placeholder="请输入门店名称">
 		          <input type="text" name="dog_id" id="dog_id" placeholder="请输入加密狗号码">
 		          <input type="password" name="pswd" id="pswd" placeholder="请输入登录密码">
-		          <input type="button" id="addbtn" value="确定" onclick="addStore()">
+		          <input type="button" id="addbtn" value="确定" data-rel="back" onclick="addStore()">
 		        </div>
 		      </form>
 		    </div>

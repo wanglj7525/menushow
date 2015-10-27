@@ -5,7 +5,7 @@ import java.util.Map;
 
 import models.ResultInfo;
 import models.SqlModel;
-import models.t_store;
+import models.Store;
 import play.mvc.Controller;
 import utils.Crypto;
 
@@ -44,7 +44,7 @@ public class StoreManage extends Controller {
 	
 	public static void deleteStore(Integer sid){
 		ResultInfo result=new ResultInfo();
-		int did=t_store.delete(" id =?", sid);
+		int did=Store.delete(" id =?", sid);
 		if (did==1) {
 			String userid=session.get("userid");
 			List<Map> store = SqlModel.getStore(Integer.parseInt(userid));

@@ -4,8 +4,8 @@ import java.util.List;
 
 public class UserManage {
 
-	public static List<t_user> allInfos() {
-		return t_user.find("order by id desc").fetch();
+	public static List<User> allInfos() {
+		return User.find("order by id desc").fetch();
 	}
 
 }
