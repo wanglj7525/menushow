@@ -228,7 +228,7 @@ $(function() {
     
     $("#form_update_info").validate({
            rules: {
-               "user.name": {
+               "user.u_name": {
                    required: true,
                    remote:{
                       url: "/UserManage/nameIsExist",
@@ -243,33 +243,12 @@ $(function() {
                       }
                     }
                 }
-                /*,
-                "user.user_name": {
-               	   required: true,
-               	   remote:{
-          	       				url: "/UserManage/usernameIsExist",
-          	       				type:'post',
-          	       				data:{
-          	       						username:function(){
-             	       						    return $("#username_update").val();
-             	       					},
-             	       					id:function(){
-             	       						return $("#id_update").val();
-             	       					}
-          	       				}
-          				      }
-        	       }*/
            },
            messages: {
-               "user.name": {
+               "user.u_name": {
                    required: "请输入姓名",
                    remote: "姓名已经存在"
                }
-               /*,
-               "user.user_name": {
-                	   required: "请输入登录名",
-                	   remote: "登录名已经存在"
-               }*/
            }
        });
     $("#updateBtn").die().live("click", function(){

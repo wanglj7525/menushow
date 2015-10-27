@@ -32,7 +32,6 @@
 							<tr>
 								<th class="hide">ID</th>
 								<th>姓名</th>
-								<!-- <th>登录名</th> -->
 								<th>代理商</th>
 								<th>年费</th>
 								<th>状态</th>
@@ -49,8 +48,6 @@
 								<td>${info?.Nf}</td>
 								<td><span class="label ${info?.Confirmed==0?'label-success':''}">${info?.Confirmed==0?'未审核':'已审核'}</span></td>
 								<td>
-									<a href="/addMsgPage?receive=3&toUserId=${info?.id}" target="msgToSureUser" title="发送消息"><i class="icon-comments"></i></a>
-									<a href="/addTaskPage?toUserId=${info?.id}" target="taskToSureUser" title="指派任务"><i class="icon-tasks"></i></a>
 									<a href="#" onclick="loadInfo('${info?.id}')" data-toggle="modal" data-target="#editUser" title="修改"><i class="icon-edit"></i></a>
 									<a href="#" onclick="deleteInfo('${info?.id}', this)" title="删除"><i class="icon-trash"></i></a>
 								</td>
@@ -82,12 +79,6 @@
                       	   <input class="span4" type="text" name="user.name" id="name_add">
                        </div>
                     </div>
-                    <!-- <div class="control-group">
-                       <label class="control-label">登录名</label>
-                       <div class="input-append">
-                      	   <input class="span4" type="text" name="user.user_name" id="username_add" value="">
-                       </div>
-                    </div> -->
 					<div class="control-group">
 						<label class="control-label">密码</label>
 						<div class="input-append">

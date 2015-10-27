@@ -36,7 +36,8 @@ POST    /login                                 Secure.authenticate
 GET     /logout                                Secure.logout
 #用户管理
 GET     /user                                  UserManage.userPage
-
+POST    /add_user                              UserManage.addUser
+POST    /update_user                           UserManage.updateUser
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
