@@ -2,11 +2,9 @@ package models;
 
 import java.util.List;
 
-public class UserManage {
 
-	public static List<User> allInfos() {
-		return User.find("order by id desc").fetch();
-	}
+public class ShopManage {
+
 	
 	/**
 	 * 删除
@@ -15,13 +13,11 @@ public class UserManage {
 	 * @return
 	 */
 	public static int deleteInfo(Long id) {
-		List<Store> store=Store.find(" u_id=? ",id).fetch();
-		if (store.size()>0) {
-			//有门店信息 不能删除 TODO
+		List<User> user=User.find(" Shopid=? ", id).fetch();
+		if (user.size()>0) {
 			return -1;
-		}else{
-			return User.delete("id=?", id);
 		}
+		return Shop.delete("id=?", id);
 	}
 	
 	/**
@@ -33,13 +29,13 @@ public class UserManage {
 	 * @return
 	 */
 	public static boolean nameIsExist(String name, String id) {
-		User user = User.find("u_name=? ", name.trim()).first();
+		Shop shop = Shop.find("Shopname=? ", name.trim()).first();
 		boolean b = true;
 		if (id==null) {
-			b = (user == null);
+			b = (shop == null);
 		} else {
-			if (user != null)
-				b = (user.id == Long.parseLong(id));
+			if (shop != null)
+				b = (shop.id == Long.parseLong(id));
 			else
 				b = true;
 		}

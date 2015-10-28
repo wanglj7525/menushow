@@ -14,7 +14,7 @@ public class Shop  extends GenericModel{
 	@Id
 	@GeneratedValue(strategy = AUTO)
 	@Column(nullable = false, name = "id")
-	public Integer id;
+	public Long id;
 	public String Shopname;
 
 }

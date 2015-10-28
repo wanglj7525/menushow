@@ -38,6 +38,11 @@ GET     /logout                                Secure.logout
 GET     /user                                  UserManage.userPage
 POST    /add_user                              UserManage.addUser
 POST    /update_user                           UserManage.updateUser
+#代理商
+GET     /shop_page                             ShopManage.index
+POST    /update_shop                           ShopManage.updateShop
+POST    /add_shop                              ShopManage.addShop
+POST    /delete_shop                           ShopManage.deleteStop
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

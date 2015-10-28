@@ -25,13 +25,10 @@
 					<a class="accordion-toggle ${request.url=='/user'?'active':''}" href="/user">
 						<i class="icon-th-list"></i> 用户信息
 					</a>
-					<a class="accordion-toggle ${request.url=='/department'?'active':''}" href="/department">
-						<i class="icon-th-large"></i> 年费价格
-					</a>
-					<a class="accordion-toggle ${request.url=='/department'?'active':''}" href="/department">
+					<a class="accordion-toggle ${request.url=='/department'?'active':''}" href="/user">
 						<i class="icon-upload"></i> 授权日期
 					</a>
-					<a class="accordion-toggle ${request.url=='/department'?'active':''}" href="/department">
+					<a class="accordion-toggle ${request.url=='/department'?'active':''}" href="/user">
 						<i class="icon-edit"></i> 充值记录
 					</a>
 				</div>
@@ -40,17 +37,17 @@
 		
 		<div class="accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle b_9FDDF6 ${request.controller!='TaskManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse11">
+				<a class="accordion-toggle b_9FDDF6 ${request.controller!='ShopManage'?'collapsed':'active'}" data-toggle="collapse" data-parent="#accordion2" href="#collapse11">
 					<i class="icon-tasks"></i>
 					<span>代理商管理</span>
 				</a>
 			</div>
-			<div id="collapse11" class="accordion-body ${request.controller!='TaskManage'?'':'in'} collapse">
+			<div id="collapse11" class="accordion-body ${request.controller!='ShopManage'?'':'in'} collapse">
 				<div class="accordion-inner submenu">
-					<a class="accordion-toggle ${request.url=='/task_page'?'active':''}" href="/task_page">
+					<a class="accordion-toggle ${request.url=='/shop_page'?'active':''}" href="/shop_page">
 						<i class="icon-th-list"></i> 代理商信息
 					</a>
-					<a class="accordion-toggle ${request.url=='/addTaskPage'?'active':''}" href="/addTaskPage">
+					<a class="accordion-toggle ${request.url=='/addTaskPage'?'active':''}" href="/shop_page">
 						<i class="icon-globe"></i> 代理商充值汇总
 					</a>
 				</div>

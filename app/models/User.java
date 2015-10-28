@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import play.db.jpa.GenericModel;
 @Entity(name = "t_user")
@@ -19,5 +20,9 @@ public class User  extends GenericModel{
 	public int Confirmed;
 	public Long Shopid;
 	public double Nf;
+	
+	@Transient
+	public String shopname;
+
 
 }

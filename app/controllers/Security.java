@@ -20,7 +20,7 @@ public class Security extends Secure.Security {
      * @return true=登录成功，false=登录失败
      */
     static boolean authenticate(String username, String password) {
-    	if(password==null||!"123456".equals(password)||!"123456".equals("管理员")){
+    	if(password==null||!"123456".equals(password)||!"管理员".equals(username)){
     		return false;
     	}
 //    	User user = null;

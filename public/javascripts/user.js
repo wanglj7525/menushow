@@ -171,7 +171,7 @@ $(function() {
     
        $("#form_add_User").validate({
            rules: {
-               "user.name": {
+               "user.u_name": {
                    required: true,
                    remote:{
                       url: "/UserManage/nameIsExist",
@@ -183,30 +183,14 @@ $(function() {
                       }
                    }
                },
-               /*"user.user_name": {
-             	   required: true,
-             	   remote:{
-        	       				url: "/UserManage/usernameIsExist",
-        	       				type:'post',
-        	       				data:{
-        	       						username:function(){
-           	       						    return $("#username_add").val();
-           	       					}
-        	       				}
-        				     }
-        	      },*/
-               "user.password": "required"
+               "u_pass": {required: true}
            },
            messages: {
-               "user.name": {
+               "user.u_name": {
                    required: "请输入姓名",
                    remote: "姓名已经存在"
                },
-               //"user.user_name": {
-            	      //required: "请输入登录名",
-            	  //    remote: "登录名已经存在"
-               //},
-               "user.password": "请输入密码"
+               "user.u_pass": "请输入密码"
            }
        });
     $("#saveBtn").die().live("click", function(){

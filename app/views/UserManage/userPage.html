@@ -21,7 +21,7 @@
 			<div class="widget widget-padding span12">
 				<div class="widget-header">
 					<i class="icon-table"></i>
-					<h5>用户管理-用户列表</h5>
+					<h5>用户管理-用户信息</h5>
 					<div class="widget-buttons">
 						<a href="#" data-title="添加用户" data-toggle="modal" data-target="#addUser"><i class="icon-plus"></i> 添加用户</a>
 					</div>
@@ -42,9 +42,8 @@
 							#{list userList,as:'info'}
 							<tr>
 								<td class="hide">${info?.id}</td>
-								<td><a href="/addMsgPage?receive=3&toUserId=${info?.id}" target="msgToSureUser">${info?.u_name}</a></td>
-								<!-- <td>${info?.u_name}</td> -->
-								<td>${info?.Shopid}</td>
+								<td>${info?.u_name}</td>
+								<td>${info?.shopname}</td>
 								<td>${info?.Nf}</td>
 								<td><span class="label ${info?.Confirmed==0?'label-success':''}">${info?.Confirmed==0?'未审核':'已审核'}</span></td>
 								<td>
@@ -76,30 +75,30 @@
                     <div class="control-group">
                        <label class="control-label">姓名</label>
                        <div class="input-append">
-                      	   <input class="span4" type="text" name="user.name" id="name_add">
+                      	   <input class="span4" type="text" name="user.u_name" id="name_add">
                        </div>
                     </div>
-					<div class="control-group">
+                    <div class="control-group">
 						<label class="control-label">密码</label>
 						<div class="input-append">
-							<input class="span4" type="password" name="user.password" value="">
+							<input class="span4" type="password" name="user.u_pass" value="">
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label">电话</label>
+						<label class="control-label">代理商</label>
 						<div class="input-append">
-							<input class="span4" type="text" name="user.phone">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label">科室</label>
-						<div class="input-append">
-							<select class="span4" name="user.department_id">
+							<select class="span4" name="user.Shopid">
 								<option value="0"></option>
-								#{list deptList, as : 'dept'}
-									<option value="${dept.id}">${dept.name}</option>
+								#{list shopList, as : 'shop'}
+									<option value="${shop.id}">${shop.Shopname}</option>
 								#{/list}
 							</select>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">年费</label>
+						<div class="input-append">
+							<input class="span4" type="text" name="user.Nf" value="200.0">
 						</div>
 					</div>
               </form>
@@ -143,7 +142,11 @@
     		if(r){
 	    		$.post("/UserManage/deleteUser", {id:id}, function(data){
 	    			if(data){
-	    				location.reload();
+	    				if(data==-1){
+	    					alert("有门店业务，不能删除!");
+	    				}else{
+		    				location.reload();
+	    				}
 	    			} else {
 	    				alert("删除失败!");
 	    			}

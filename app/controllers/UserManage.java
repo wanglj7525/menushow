@@ -2,8 +2,10 @@ package controllers;
 
 import java.util.List;
 
+import models.Shop;
 import models.User;
 import play.mvc.Controller;
+import utils.Crypto;
 
 public class UserManage extends Controller {
 	public static void index() {
@@ -12,29 +14,39 @@ public class UserManage extends Controller {
 
 	public static void userPage() {
 		List<User> userList = models.UserManage.allInfos();
-		render(userList);
+		for (User user : userList) {
+			Shop shop=Shop.findById(user.Shopid);
+			user.shopname=shop.Shopname;
+		}
+		List<Shop> shopList = Shop.findAll();
+		render(userList,shopList);
 	}
 	
-	public static void deleteUser(Integer id) {
+	public static void deleteUser(Long id) {
 		int success = models.UserManage.deleteInfo(id);
 		renderJSON(success);
 	}
 	
 	public static void editUserPage(Integer id) {
 		User info = User.findById(id);
-		render(info);
+		List<Shop> shopList = Shop.findAll();
+		render(info,shopList);
 	}
 	
 	public static void addUser(User user) {
+		String pass=Crypto.passwordHash(user.u_pass);
+		user.u_pass=pass;
 		boolean success = user.save().isPersistent();
 		renderJSON(success);
 	}
 
 	public static void updateUser(User user) {
-
+		String pass=Crypto.passwordHash(user.u_pass);
+		user.u_pass=pass;
 		boolean success = user.save().isPersistent();
 		renderJSON(success);
 	}
+	
 	
 	/**
 	 * 姓名是否存在
