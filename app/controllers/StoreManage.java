@@ -57,4 +57,7 @@ public class StoreManage extends Controller {
 	public static void first(Integer s_id) {
 		render(s_id);
 	}
+	public static void second(Integer s_id) {
+		render(s_id);
+	}
 }

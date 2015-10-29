@@ -28,6 +28,8 @@ POST	/store/delete							StoreManage.deleteStore
 
 #查询门店营业概况
 GET		/store/first									StoreManage.first
+#查询门店营业概况
+GET		/store/second									StoreManage.first
 
 
 #登录
