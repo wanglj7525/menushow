@@ -7,21 +7,37 @@
 <link rel="stylesheet" href="/public/stylesheets/main.css">
 <script src="/public/lib/jquerymobile/jquery.js"></script>
 <script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
-<script src="/public/javascripts/Chart.min.js"></script>
+<script src="/public/javascripts/Chart.js"></script>
 <script src="/public/javascripts/custom.js"></script>
 </head>
 <body>
 	<div data-role="page" id="firstpage">
-<script>
-
-	$(document).ready(function(){
-		var ctx = $("#myChart").getContext("2d");
-		window.myLine = new Chart(ctx).Line(lineChartData, {
-			responsive: true
-		});
+	<script type="text/javascript">
+	/**
+	
+		function showLineChart(){
+			alert(1);
+			var ctx = document.getElementById("lineChartCanvas").getContext("2d");
+			new Chart(ctx).Line(lineChartData,globalGraphSettings);
+		};
+	$("#firstpage").on("pageshow",function(e){
+			setTimeout(showLineChart,graphInitDelay);
 	});
+	**/
 
-
+    // 启动
+    setTimeout(function() {
+        // 避免IE7-8 调用getContext报错，使用setTimeout
+        lineChart()
+        barChart()
+    }, 0)
+    // 在手机测试，canvas中的动画看起来很卡，性能很差
+    // PC上还不错
+    if (/Mobile/i.test(navigator.userAgent)) {
+        //针对手机，性能做一些降级，看起来就不会那么卡了
+        Chart.defaults.global.animationSteps = Chart.defaults.global.animationSteps / 6
+        Chart.defaults.global.animationEasing = "linear"
+    }
 	</script>
 		<div data-role="header" style="background-color: #191970" data-position="fixed">
 			<a href="#reportpage">返回</a>
@@ -29,9 +45,23 @@
 		</div>
 		<div data-role="main" class="ui-content">
 		${s_id}
+	<div class="container">
+        <h2 class="chart-title">某品牌汽车销量走势</h2>
+        <div class="chart-wrapper">
+            <canvas id="sales-volume-chart"></canvas>
+        </div>
+        <small>单位：万辆</small>
+    </div>
+    <div class="container">
+        <h2 class="chart-title">某品牌汽车销量走势</h2>
+        <div class="chart-wrapper">
+            <canvas id="sales-volume-bar-chart"></canvas>
+        </div>
+        <small>单位：万辆</small>
+    </div>
 		<div style="width:98%">
 			<div>
-				<canvas id="myChart" width="400" height="400"></canvas>
+				<canvas id="lineChartCanvas" width="400" height="400"></canvas>
 			</div>
 		</div>
 		</div>
