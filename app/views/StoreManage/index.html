@@ -117,5 +117,23 @@
 		    </ul>
 		  </div>
 		</div>
+		<div data-role="page" id="first_mendian">
+		<script type="text/javascript">
+				$(document).on("pageshow","#first_mendian",function(){ // 当进入页面二时
+					  console.log(11);
+					});
+		</script>
+			<div data-role="header" style="background-color: #191970" data-position="fixed">
+				<a href="#reportpage">返回</a>
+				<h1 id="titlename" class="title_text_color">门店营业概况</h1>
+			</div>
+		  <div data-role="main" class="ui-content">
+		  		<div style="width:98%">
+					<div>
+						<canvas id="lineChartCanvass" width="400" height="400"></canvas>
+					</div>
+				</div>
+		  </div>
+		</div>
 </body>
 </html>
