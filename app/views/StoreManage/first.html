@@ -7,35 +7,25 @@
 <link rel="stylesheet" href="/public/stylesheets/main.css">
 <script src="/public/lib/jquerymobile/jquery.js"></script>
 <script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
-<script src="/public/javascripts/Chart.js"></script>
 <script src="/public/javascripts/custom.js"></script>
+<link rel="stylesheet" href="/public/echarts_mobile/css/main.css">
+    <script src="/public/echarts_mobile/js/jquery.min.js"></script>
+    <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
 </head>
 <body>
 	<div data-role="page" id="firstpage">
 	<script type="text/javascript">
-	
-		$("#firstpage").on("pageshow",function(e){
-			var ctx = document.getElementById("lineChartCanvas").getContext("2d");
-			new Chart(ctx).Line(lineChartData,globalGraphSettings);
-		//	setTimeout(showLineChart,graphInitDelay);
-		});
-    // 启动
-    //setTimeout(function() {
-        // 避免IE7-8 调用getContext报错，使用setTimeout
-       // lineChart()
-       // barChart()
-    //}, 0)
 	</script>
 		<div data-role="header" style="background-color: #191970" data-position="fixed">
 			<a href="#reportpage">返回</a>
 			<h1 id="titlename" class="title_text_color">门店营业概况</h1>
 		</div>
 		<div data-role="main" class="ui-content">
-		<div style="width:98%">
-			<div>
-				<canvas id="lineChartCanvas" width="400" height="400"></canvas>
+			<div id="content">
+			    <section class="section">
+	            	<div class="main " optionKey="magicType"></div>
+	        	</section>
 			</div>
-		</div>
 		</div>
 	</div>
 </body>

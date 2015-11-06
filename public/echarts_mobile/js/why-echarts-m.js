@@ -1757,7 +1757,7 @@ function disposeChart() {
 }
 require.config({
     paths:{ 
-        echarts: './js/dist',
+        echarts: '/public/echarts_mobile/js/dist',
     }
 });
 $(function(){
@@ -1778,7 +1778,7 @@ $(function(){
         function (ec) {
             echarts = ec;
             resize();
-            $('.page div').click(pageHandler);
+//            $('.page div').click(pageHandler);
             window.onresize = function(){
                 resize();
             }
@@ -1794,31 +1794,28 @@ function resize() {
     $('.main').height(document.documentElement.clientHeight - 65 + 'px');
     myChart && myChart.resize();
 }
-function bindPageHandler() {
-
-}
-function pageHandler() {
-    var upOrdown = $(this)[0].className;
-    if (upOrdown == 'page-down') {
-        if ($(this).html() == '再看一次') {
-            window.location.reload();
-            return;
-        }
-        if (!$('.active').removeClass('active').css('left', '-100%')
-                         .next().addClass('active').css('left', 0).next()[0]
-        ) {
-            $(this).html('再看一次');
-        }
-        else {
-            $(this).html('下一页');
-        }
-        $(this).prev().removeClass('disabled');
-    }
-    else if (upOrdown == 'page-up') {
-        !$('.active').removeClass('active').css('left', '100%')
-                     .prev().addClass('active').css('left', 0).prev()[0]
-        && $(this).addClass('disabled');
-        $(this).next().removeClass('disabled').html('下一页');
-    }
-    initChart();
-}
+//function pageHandler() {
+//    var upOrdown = $(this)[0].className;
+//    if (upOrdown == 'page-down') {
+//        if ($(this).html() == '再看一次') {
+//            window.location.reload();
+//            return;
+//        }
+//        if (!$('.active').removeClass('active').css('left', '-100%')
+//                         .next().addClass('active').css('left', 0).next()[0]
+//        ) {
+//            $(this).html('再看一次');
+//        }
+//        else {
+//            $(this).html('下一页');
+//        }
+//        $(this).prev().removeClass('disabled');
+//    }
+//    else if (upOrdown == 'page-up') {
+//        !$('.active').removeClass('active').css('left', '100%')
+//                     .prev().addClass('active').css('left', 0).prev()[0]
+//        && $(this).addClass('disabled');
+//        $(this).next().removeClass('disabled').html('下一页');
+//    }
+//    initChart();
+//}
