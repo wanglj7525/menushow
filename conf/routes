@@ -29,7 +29,17 @@ POST	/store/delete							StoreManage.deleteStore
 #查询门店营业概况
 GET		/store/first									StoreManage.first
 #查询门店营业概况
-GET		/store/second									StoreManage.first
+GET		/store/second									StoreManage.second
+#3)	类别销售统计
+GET		/store/third									StoreManage.third
+#4)	70月营业走势
+GET		/store/fouth									StoreManage.fouth
+#付款方式统计
+GET		/store/fifth									StoreManage.fifth
+#单品销售排行
+GET		/store/sixth									StoreManage.sixth
+#门店销售排行
+GET		/store/seventh									StoreManage.seventh
 
 
 #登录

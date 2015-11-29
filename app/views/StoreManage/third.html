@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="/public/lib/jquerymobile/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="/public/stylesheets/main.css">
+<script src="/public/lib/jquerymobile/jquery.js"></script>
+<script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
+<script src="/public/javascripts/custom.js"></script>
+<link rel="stylesheet" href="/public/echarts_mobile/css/main.css">
+    <script src="/public/echarts_mobile/js/jquery.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="thirdpage">
+    <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
+		<div data-role="header" style="background-color: #191970" data-position="fixed">
+			<a href="#reportpage">返回</a>
+			<h1 id="titlename" class="title_text_color">类别销售统计</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<div id="content">
+				<table data-role="table" id="phone-table" data-mode="columntoggle"  class="phone-compare ui-shadow table-stroke">
+				  <thead>
+				    <tr>
+				      <th>大类</th>
+				      <th>小类</th>
+				      <th>数量</th>
+				      <th>金额</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	#{list items:allArray,as:"oneArray"}
+				    <tr>
+				      <th class="label">${oneArray[0]}</th>
+				      <td>${oneArray[1]}</td>
+				      <td>${oneArray[2]}</td>
+				      <td>${oneArray[3]}</td>
+				    </tr>
+				  	#{/list}
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

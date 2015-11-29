@@ -11,17 +11,18 @@
 <script src="/public/javascripts/custom.js"></script>
 </head>
 <body>
-	<div data-role="page" id="secondpage">
+	<div data-role="page" id="fouthpage">
     <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
 		<div data-role="header" style="background-color: #191970" data-position="fixed">
 			<a href="#reportpage">返回</a>
-			<h1 id="titlename" class="title_text_color">大类销售统计</h1>
+			<h1 id="titlename" class="title_text_color">付款方式统计</h1>
 		</div>
 		<div data-role="main" class="ui-content">
 			<div id="content">
-				<input type="hidden" id="show1" value="${one}">
-				<input type="hidden" id="show2" value="${two}">
-				<input type="hidden" id="show3" value="${three}">
+				<input type="hidden" id="num1" value="${num1}">
+				<input type="hidden" id="num2" value="${num2}">
+				<input type="hidden" id="num3" value="${num3}">
+				<input type="hidden" id="num4" value="${num4}">
 	            <div id="showBar" class="show" style="width:400px;height:400px"></div>
 			<script type="text/javascript">
 			require.config({
@@ -33,7 +34,7 @@
         require(
             [
                 'echarts',
-                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
@@ -44,31 +45,21 @@
                         show: true
                     },
                     legend: {
-                        data:['数量','金额']
+                        data:['现金支付','免单','其他付款','员工餐']
                     },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : [$("#show1").val()]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value'
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"数量",
-                            "type":"bar",
-                            "data":[$("#show2").val()]
-                        },
-                         {
-                            "name":"金额",
-                            "type":"bar",
-                            "data":[$("#show3").val()]
-                        }
-                    ]
+                     series : [
+				        {
+				            name:'付款方式',
+				            type:'pie',
+				            radius : '55%',
+				            center: ['50%', '60%'],
+				            data:[{name:'现金支付',value:$("#num1").val()},
+				            	{name:'免单',value:$("#num2").val()},
+				            	{name:'其他付款',value:$("#num3").val()},
+				            	{name:'员工餐',value:$("#num4").val()}
+				            ]
+				        }
+				    ]
                 };
                 // 为echarts对象加载数据 
                 myChart.setOption(option); 

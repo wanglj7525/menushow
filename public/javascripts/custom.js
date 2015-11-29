@@ -104,21 +104,21 @@ function login(){
 	}
 	
 	 $.ajax({  
-              type: "POST",  
-              url: "/app/login",  
-              data: $('#loginform').serialize(),  
-              success:function(data){  
-              	if(data.result=="error"){
-              		alert(data.msg);
-              	}else{
-              		window.location = "/store/index?id="+data.info.id+"#pagestore";
+		 type: "POST",  
+		 url: "/app/login",  
+		 data: $('#loginform').serialize(),  
+		 success:function(data){  
+			 if(data.result=="error"){
+				 alert(data.msg);
+			 }else{
+				 window.location = "/store/index?id="+data.info.id+"#pagestore";
 //                    $.mobile.changePage("/store/index?id="+data.info.id);  
-              	}
-              },
-              error:function(data){
-              		console.log(data);
-              }  
-        });  
+			 }
+		 },
+		 error:function(data){
+			 console.log(data);
+		 }  
+	 });  
 }
 function register(){
 
@@ -311,10 +311,20 @@ function showAdd(){
 	$("#addStore").popup('open');
 }
 function check(listid){
-	var selectStore=$("input[name='store']:checked").val(); 
-	if (listid==1) {
-		$.mobile.changePage("/store/first?s_id="+selectStore);  
-	}else{
-		$.mobile.changePage("/store/second?s_id="+selectStore);  
+	var selectdog=$("input[name='store']:checked").attr("attrdog"); 
+	if (listid==71) {
+		$.mobile.changePage("/store/first?sp="+listid+"&dogid="+selectdog);  
+	}else if(listid==65){
+		$.mobile.changePage("/store/second?sp="+listid+"&dogid="+selectdog);  
+	}else if(listid==66){
+		$.mobile.changePage("/store/third?sp="+listid+"&dogid="+selectdog);  
+	}else if(listid==70){
+		$.mobile.changePage("/store/fouth?sp="+listid+"&dogid="+selectdog);  
+	}else if(listid==67){
+		$.mobile.changePage("/store/fifth?sp="+listid+"&dogid="+selectdog);  
+	}else if(listid==68){
+		$.mobile.changePage("/store/sixth?sp="+listid+"&dogid="+selectdog);  
+	}else if(listid==69){
+		$.mobile.changePage("/store/seventh?sp="+listid+"&dogid="+selectdog);  
 	}
 }

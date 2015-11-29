@@ -7,3 +7,6 @@
 .errorshow {
 	box-shadow: 0 0 5px rgb(250,0,0);
 }
+.ui-table-columntoggle-btn {
+    display: none !important;
+}

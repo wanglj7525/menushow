@@ -11,17 +11,18 @@
 <script src="/public/javascripts/custom.js"></script>
 </head>
 <body>
-	<div data-role="page" id="secondpage">
+	<div data-role="page" id="fouthpage">
     <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
 		<div data-role="header" style="background-color: #191970" data-position="fixed">
 			<a href="#reportpage">返回</a>
-			<h1 id="titlename" class="title_text_color">大类销售统计</h1>
+			<h1 id="titlename" class="title_text_color">月营业走势</h1>
 		</div>
 		<div data-role="main" class="ui-content">
 			<div id="content">
 				<input type="hidden" id="show1" value="${one}">
 				<input type="hidden" id="show2" value="${two}">
 				<input type="hidden" id="show3" value="${three}">
+				<input type="hidden" id="show4" value="${four}">
 	            <div id="showBar" class="show" style="width:400px;height:400px"></div>
 			<script type="text/javascript">
 			require.config({
@@ -33,7 +34,7 @@
         require(
             [
                 'echarts',
-                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
@@ -44,7 +45,7 @@
                         show: true
                     },
                     legend: {
-                        data:['数量','金额']
+                        data:['客单数','来客数','销售额']
                     },
                     xAxis : [
                         {
@@ -59,14 +60,19 @@
                     ],
                     series : [
                         {
-                            "name":"数量",
-                            "type":"bar",
+                            "name":"客单数",
+                            "type":"line",
                             "data":[$("#show2").val()]
                         },
                          {
-                            "name":"金额",
-                            "type":"bar",
+                            "name":"来客数",
+                            "type":"line",
                             "data":[$("#show3").val()]
+                        },
+                         {
+                            "name":"销售额",
+                            "type":"line",
+                            "data":[$("#show4").val()]
                         }
                     ]
                 };
