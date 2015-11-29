@@ -59,7 +59,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
@@ -83,7 +83,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
@@ -114,7 +114,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
@@ -146,7 +146,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
@@ -182,7 +182,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
@@ -207,7 +207,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
@@ -239,7 +239,7 @@ public class StoreManage extends Controller {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
-		rest.setParam("dogid", "123654");
+		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
 		rest.setParam("start_time", "20151003");
 		rest.setParam("end_time", "20151105");
