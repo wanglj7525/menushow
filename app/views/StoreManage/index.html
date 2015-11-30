@@ -9,10 +9,7 @@
 	<script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
 	<script src="/public/javascripts/custom.js"></script>
     <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
- <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-
+ 	<script src="/public/My97DatePicker/WdatePicker.js"></script>
 </head>
 
 <body>
@@ -63,17 +60,19 @@
 		</div> 
 	</div>
 		<div data-role="page" id="reportpage">
-		 <script type="text/javascript">
-		  	$(function(){ 
-			    $("#date_1").datepicker(); 
-			}); 
-			</script>
+		  <script>
+		  </script>
 			<div data-role="header" style="background-color: #191970" data-position="fixed">
 				<a href="#pagestore">返回</a>
 				<h1 id="titlename" class="title_text_color">门店营运助理</h1>
 			</div>
 		  <div data-role="main" class="ui-content">
-		  <input type="text" id="date_1" /> 
+		  	<div>
+			 	开始时间：<input data-role="none" style="width: 70%" class="Wdate" id="starttime" type="text" onClick="WdatePicker()" >
+		  	</div>
+		  	<div style="margin-top: 10px;">
+			 	结束时间：<input data-role="none" style="width: 70%" class="Wdate" id="endtime" type="text" onClick="WdatePicker()">
+		  	</div>
 		    <ul data-role="listview" data-inset="true">
 		      <li>
 		        <a href="#" onclick="check(71)" data-ajax=“false”>

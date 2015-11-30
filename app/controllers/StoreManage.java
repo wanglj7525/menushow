@@ -55,15 +55,23 @@ public class StoreManage extends Controller {
 		}
 		
 	}
-	public static void first(String dogid,String sp) {
+	
+	private static String doRest(String dogid, String sp, String start_time,
+			String end_time) {
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
 		rest.setParam("dogid", dogid);
 		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
+		rest.setParam("start_time", start_time);
+		rest.setParam("end_time", end_time);
 		String result = rest.string(false);
+		System.out.println(result);
+		return result;
+	}
+	
+	public static void first(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
 		ArrayList<String> strArray = new ArrayList<String> ();
 		for (int i = 0; i < result.split("\t").length; i++) {
 //			if (result.split("\t")[i].contains("付款信息")) {
@@ -79,16 +87,9 @@ public class StoreManage extends Controller {
 		
 		render(strArray);
 	}
-	public static void second(String dogid,String sp) {
-		Rest rest=new Rest();
-		rest.setRestIp("http://121.41.106.61:8181/");
-		rest.setUrl("");
-		rest.setParam("dogid", dogid);
-		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
-		String result = rest.string(false);
-		System.out.println(result);
+
+	public static void second(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
 		ArrayList<String> oneArray = new ArrayList<String> ();
 		ArrayList<String> twoArray = new ArrayList<String> ();
 		ArrayList<String> threeArray = new ArrayList<String> ();
@@ -110,16 +111,8 @@ public class StoreManage extends Controller {
 		String three=threeArray.toString().substring(1, threeArray.toString().lastIndexOf("]"));
 		render(one,two,three);
 	}
-	public static void third(String dogid,String sp) {
-		Rest rest=new Rest();
-		rest.setRestIp("http://121.41.106.61:8181/");
-		rest.setUrl("");
-		rest.setParam("dogid", dogid);
-		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
-		String result = rest.string(false);
-		System.out.println(result);
+	public static void third(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
 		ArrayList<ArrayList<String>> allArray = new ArrayList<ArrayList<String>> ();
 		
 		String trueResult="";
@@ -142,16 +135,9 @@ public class StoreManage extends Controller {
 		System.out.println(allArray);
 		render(allArray);
 	}
-	public static void fouth(String dogid,String sp) {
-		Rest rest=new Rest();
-		rest.setRestIp("http://121.41.106.61:8181/");
-		rest.setUrl("");
-		rest.setParam("dogid", dogid);
-		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
-		String result = rest.string(false);
-		System.out.println(result);
+	public static void fouth(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
+		
 		ArrayList<String> oneArray = new ArrayList<String> ();
 		ArrayList<String> twoArray = new ArrayList<String> ();
 		ArrayList<String> threeArray = new ArrayList<String> ();
@@ -178,16 +164,8 @@ public class StoreManage extends Controller {
 		String four=fourArray.toString().substring(1, threeArray.toString().lastIndexOf("]"));
 		render(one,two,three,four);
 	}
-	public static void fifth(String dogid,String sp) {
-		Rest rest=new Rest();
-		rest.setRestIp("http://121.41.106.61:8181/");
-		rest.setUrl("");
-		rest.setParam("dogid", dogid);
-		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
-		String result = rest.string(false);
-		System.out.println(result);
+	public static void fifth(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
 		String trueResult="";
 		for (int i = 0; i < result.split("\t").length; i++) {
 			if (result.split("\t")[i].trim().length()!=0) {
@@ -195,24 +173,19 @@ public class StoreManage extends Controller {
 			}
 		}
 		trueResult=trueResult.substring(0,trueResult.length()-1);
-		System.out.println(trueResult);
-		String num1=trueResult.split(",")[1];
-		String num2=trueResult.split(",")[3];
-		String num3=trueResult.split(",")[5];
-		String num4=trueResult.split(",")[7];
+		System.out.println(11+trueResult);
+		String num1="0",num2="0",num3="0",num4="0";
+		if (trueResult.length()>4) {
+			num1=trueResult.split(",")[1];
+			num2=trueResult.split(",")[3];
+			num3=trueResult.split(",")[5];
+			num4=trueResult.split(",")[7];
+		}
 		render(num1,num2,num3,num4);
 	}
 	
-	public static void sixth(String dogid,String sp) {
-		Rest rest=new Rest();
-		rest.setRestIp("http://121.41.106.61:8181/");
-		rest.setUrl("");
-		rest.setParam("dogid", dogid);
-		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
-		String result = rest.string(false);
-		System.out.println(result);
+	public static void sixth(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
 		ArrayList<ArrayList<String>> allArray = new ArrayList<ArrayList<String>> ();
 		
 		String trueResult="";
@@ -235,16 +208,8 @@ public class StoreManage extends Controller {
 		System.out.println(allArray);
 		render(allArray);
 	}
-	public static void seventh(String dogid,String sp) {
-		Rest rest=new Rest();
-		rest.setRestIp("http://121.41.106.61:8181/");
-		rest.setUrl("");
-		rest.setParam("dogid", dogid);
-		rest.setParam("sp", sp);
-		rest.setParam("start_time", "20151003");
-		rest.setParam("end_time", "20151105");
-		String result = rest.string(false);
-		System.out.println(result);
+	public static void seventh(String dogid,String sp,String start_time,String end_time) {
+		String result = doRest(dogid, sp, start_time, end_time);
 		ArrayList<ArrayList<String>> allArray = new ArrayList<ArrayList<String>> ();
 		
 		String trueResult="";
