@@ -5,19 +5,14 @@
 	<link rel="stylesheet"
 	href="/public/lib/jquerymobile/jquery.mobile-1.4.5.css">
 	<link rel="stylesheet" href="/public/stylesheets/main.css">
-    <link rel="stylesheet" href="/public/pickadate/themes/default.css" id="theme_base">
-	<link rel="stylesheet" href="/public/pickadate/themes/default.date.css" id="theme_date">
-	<link rel="stylesheet" href="/public/pickadate/themes/default.time.css" id="theme_time">
 	<script src="/public/lib/jquerymobile/jquery.js"></script>
 	<script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
 	<script src="/public/javascripts/custom.js"></script>
     <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
-    <script src="../public/pickadate/jquery.1.7.0.js"></script>
-    <script src="../public/pickadate/picker.js"></script>
-    <script src="../public/pickadate/picker.date.js"></script>
-    <script src="../public/pickadate/picker.time.js"></script>
-    <script src="../public/pickadate/legacy.js"></script>
-	
+ <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
 </head>
 
 <body>
@@ -68,18 +63,17 @@
 		</div> 
 	</div>
 		<div data-role="page" id="reportpage">
+		 <script type="text/javascript">
+		  	$(function(){ 
+			    $("#date_1").datepicker(); 
+			}); 
+			</script>
 			<div data-role="header" style="background-color: #191970" data-position="fixed">
 				<a href="#pagestore">返回</a>
 				<h1 id="titlename" class="title_text_color">门店营运助理</h1>
 			</div>
 		  <div data-role="main" class="ui-content">
-		  <input
-                    id="input_01"
-                    class="datepicker"
-                    name="date"
-                    type="text"
-                    value="14 August, 2014"
-                    data-valuee="2014-08-08">
+		  <input type="text" id="date_1" /> 
 		    <ul data-role="listview" data-inset="true">
 		      <li>
 		        <a href="#" onclick="check(71)" data-ajax=“false”>
@@ -132,14 +126,8 @@
 		      </li>
 		    </ul>
 		  </div>
+		 
 		</div>
-		<script type="text/javascript">
-
-			 var $input = $( '.datepicker' ).pickadate();
-
-        var picker = $input.pickadate('picker')
-			
-			</script>
 </body>
 
 </html>
