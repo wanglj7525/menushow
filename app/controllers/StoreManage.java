@@ -62,10 +62,11 @@ public class StoreManage extends Controller {
 	private static String doRest(String dogid, String sp, String start_time,
 			String end_time) {
 		if (start_time.length()!=8) {
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-			Calendar lastDate = Calendar.getInstance();
-			lastDate.set(Calendar.DATE,1);//设为当前月的1 号
-			start_time=sdf.format(lastDate.getTime());
+//			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+//			Calendar lastDate = Calendar.getInstance();
+//			lastDate.set(Calendar.DATE,1);//设为当前月的1 号
+//			start_time=sdf.format(lastDate.getTime());
+			start_time="20151101";
 		}
 		if (end_time.length()!=8) {
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
