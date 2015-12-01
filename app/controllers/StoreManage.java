@@ -1,6 +1,9 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +61,17 @@ public class StoreManage extends Controller {
 	
 	private static String doRest(String dogid, String sp, String start_time,
 			String end_time) {
+		if (start_time.length()!=8) {
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			Calendar lastDate = Calendar.getInstance();
+			lastDate.set(Calendar.DATE,1);//设为当前月的1 号
+			start_time=sdf.format(lastDate.getTime());
+		}
+		if (end_time.length()!=8) {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+			System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+			end_time=df.format(new Date());
+		}
 		Rest rest=new Rest();
 		rest.setRestIp("http://121.41.106.61:8181/");
 		rest.setUrl("");
