@@ -69,7 +69,7 @@ public class StoreManage extends Controller {
 			start_time="20151101";
 		}
 		if (end_time.length()!=8) {
-			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+			SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
 			System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 			end_time=df.format(new Date());
 		}
