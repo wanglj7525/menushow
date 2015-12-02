@@ -1,5 +1,8 @@
 package controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +21,29 @@ public class Login extends Controller {
 		ResultInfo result=new ResultInfo();
 	    List<Map> user=SqlModel.login(username, Crypto.passwordHash(password));
 	    if (user.size()>0) {
+	    	
+	    	String confirmed=user.get(0).get("confirmed").toString();
+//	    	if (Integer.parseInt(confirmed)==0) {
+//	    		renderJSON(result.error("未通过审核，不能登录"));
+//			}
+	    	
+//	    	String expiredate=user.get(0).get("expiredate").toString();
+//	    	if (expiredate!=null) {
+//	    		try {
+//		    		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		    		Date date = sdf.parse(expiredate);
+//		    		long s1=date.getTime();//将时间转为毫秒
+//		    		long s2=System.currentTimeMillis();//得到当前的毫秒
+//		    		int day=(int) ((s2-s1)/1000/60/60/24);
+//		    		System.out.println("距现在已有"+day+"天，你得抓紧时间学习了" );
+//		    		if (day>=0) {
+//		    			renderJSON(result.error("超过授权使用时间"));
+//		    			session.put("expiredate",day);
+//					}
+//	    		} catch (ParseException e) {
+//	    			e.printStackTrace();
+//	    		}
+//			}
 			//登录成功
 	    	session.put("username", user.get(0).get("uName"));
 	    	session.put("password",  Crypto.passwordHash(password));

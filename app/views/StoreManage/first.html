@@ -29,6 +29,7 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				  #{if strArray.size()>10}
 				    <tr>
 				      <th class="label" rowspan="4">${strArray[0]}</th>
 				      <td>${strArray[1]}</td>
@@ -67,6 +68,7 @@
 				      <td>${strArray[18]}</td>
 				      <td>${strArray[19]}</td>
 				    </tr>
+				    #{/if}
 				  </tbody>
 				</table>
 			</div>

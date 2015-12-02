@@ -17,7 +17,9 @@ public class StoreManage extends Controller {
 
 	public static void index(Integer id) {
 		List<Map> store = SqlModel.getStore(id);
-		render(store);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		String showtime=df.format(new Date());
+		render(store,showtime);
 	}
 	
 	public static void add(Integer us_id, String s_name,String dog_id,String pswd){
@@ -89,17 +91,11 @@ public class StoreManage extends Controller {
 		String result = doRest(dogid, sp, start_time, end_time);
 		ArrayList<String> strArray = new ArrayList<String> ();
 		for (int i = 0; i < result.split("\t").length; i++) {
-//			if (result.split("\t")[i].contains("付款信息")) {
-//				strArray.add(result.split("\t")[i].substring(0, result.split("\t")[i].length()-4));
-//				strArray.add("付款信息");
-//			}else{
 			if (result.split("\t")[i].trim().length()!=0) {
 				strArray.add(result.split("\t")[i]);
 			}
-//			}
 		}
 		System.out.println(strArray);
-		
 		render(strArray);
 	}
 
