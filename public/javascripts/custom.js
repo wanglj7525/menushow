@@ -72,6 +72,13 @@ function register(){
 	}else{
 		$("#againpassword").closest('div').removeClass("errorshow");
 	}
+	var shopid=$("#shopid").val();
+	if(shopid.trim().length==0||isNaN(shopid)){
+		$("#shopid").closest('div').addClass("errorshow");
+		return;
+	}else{
+		$("#shopid").closest('div').removeClass("errorshow");
+	}
 	
 	 $.ajax({  
               type: "POST",  

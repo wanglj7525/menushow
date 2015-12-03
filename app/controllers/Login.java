@@ -1,12 +1,10 @@
 package controllers;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import models.ResultInfo;
+import models.Shop;
 import models.SqlModel;
 import play.mvc.Controller;
 import utils.Crypto;
@@ -58,21 +56,27 @@ public class Login extends Controller {
 		renderJSON(result.success(user.get(0)));
 	}
 	
-	public static void regester(String rname,String rpass){
+	public static void regester(String rname,String rpass,Long shopid){
 		ResultInfo result=new ResultInfo();
-		Integer uid=SqlModel.saveUserInfo(rname, Crypto.passwordHash(rpass));
-		if (uid == null || uid == 0) {
-			renderJSON(result.error("注册失败！"));
-		} else if(uid==-1){
-			renderJSON(result.error("用户名已经存在！"));
+		Shop tu = Shop.findById(shopid);
+		if (tu != null) {
+			Integer uid=SqlModel.saveUserInfo(rname, Crypto.passwordHash(rpass));
+			if (uid == null || uid == 0) {
+				renderJSON(result.error("注册失败！"));
+			} else if(uid==-1){
+				renderJSON(result.error("用户名已经存在！"));
+			}else{
+				session.put("username", rname);
+				session.put("password",  Crypto.passwordHash(rpass));
+				session.put("userid", uid);
+				session.put("shopid",null);
+				session.put("Confirmed",0);
+				session.put("Nf",200);
+				renderJSON(result.success(uid));
+				
+			}
 		}else{
-			session.put("username", rname);
-	    	session.put("password",  Crypto.passwordHash(rpass));
-	    	session.put("userid", uid);
-	    	session.put("shopid",null);
-	    	session.put("Confirmed",0);
-	    	session.put("Nf",200);
-			renderJSON(result.success(uid));
+			renderJSON(result.error("代理商ID不存在！"));
 		}
 	}
 }
