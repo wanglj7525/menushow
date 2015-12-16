@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,3 +77,83 @@
 	</div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="/public/lib/jquerymobile/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="/public/stylesheets/main.css">
+<script src="/public/lib/jquerymobile/jquery.js"></script>
+<script src="/public/lib/jquerymobile/jquery.mobile-1.4.5.js"></script>
+<script src="/public/javascripts/custom.js"></script>
+<link rel="stylesheet" href="/public/echarts_mobile/css/main.css">
+    <script src="/public/echarts_mobile/js/jquery.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="firstpage">
+    <script src="/public/echarts_mobile/js/dist/echarts.js"></script>
+		<div data-role="header" style="background-color: #191970" data-position="fixed">
+			<a href="#reportpage">返回</a>
+			<h1 id="titlename" class="title_text_color">门店营业概况</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<div id="content">
+				<table data-role="table" id="phone-table" data-mode="columntoggle"  class="phone-compare ui-shadow table-stroke">
+				  <thead>
+				    <tr>
+				      <th>类别</th>
+				      <th>项目</th>
+				      <th>数值</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  #{if strArray.size()>10}
+				    <tr>
+				      <th class="label" rowspan="4">${strArray[0]}</th>
+				      <td>${strArray[1]}</td>
+				      <td>${strArray[2]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[3]}</td>
+				      <td>${strArray[4]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[5]}</td>
+				      <td>${strArray[6]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[7]}</td>
+				      <td>${strArray[8]}</td>
+				    </tr>
+				    <tr>
+				      <th class="label" rowspan="5">${strArray[9]}</th>
+				      <td>${strArray[10]}</td>
+				      <td>${strArray[11]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[12]}</td>
+				      <td>${strArray[13]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[14]}</td>
+				      <td>${strArray[15]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[16]}</td>
+				      <td>${strArray[17]}</td>
+				    </tr>
+				    <tr>
+				      <td>${strArray[18]}</td>
+				      <td>${strArray[19]}</td>
+				    </tr>
+				    #{/if}
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+>>>>>>> branch 'master' of git@github.com:wanglj7525/menushow.git

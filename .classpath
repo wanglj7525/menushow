@@ -6,7 +6,7 @@
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:\play-1.2.5\framework\play-1.2.5.jar" sourcepath="D:/play-1.2.5/framework/src" />
-	<classpathentry kind="lib" path="D:\xiangmu\workplace\menushow\lib\json-lib-2.2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:\Users\wlj\Desktop\menushow\lib\json-lib-2.2.2-jdk15.jar"/>
 	<classpathentry kind="lib" path="D:\play-1.2.5\framework\lib\activation-1.1.1.jar"/>
 	<classpathentry kind="lib" path="D:\play-1.2.5\framework\lib\antlr-2.7.7.jar"/>
 	<classpathentry kind="lib" path="D:\play-1.2.5\framework\lib\asm-all-3.3.1.jar"/>
