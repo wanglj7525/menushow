@@ -3,13 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+#GET     /                                       Application.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
 GET     /home                                   Home.index
 #登录页
-GET		/index									Login.index
+GET		/									Login.index
 
 #登录
 POST	/app/login									Login.login

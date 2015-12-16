@@ -344,6 +344,8 @@ public class Rest {
 			URL getUrl = new URL(getURL);
 
 			HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
+			connection.setConnectTimeout(20000);
+			connection.setReadTimeout(20000);
 			if (connection.getResponseCode() == 200) {
 				// connection.connect();
 				BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));

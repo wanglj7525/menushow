@@ -3,9 +3,9 @@ package controllers;
 import java.util.List;
 
 import models.Shop;
-import models.User;
 import play.mvc.Controller;
-
+import play.mvc.With;
+@With(Secure.class)
 public class ShopManage extends Controller {
 	public static void index() {
 		List<Shop> shopList=Shop.findAll();

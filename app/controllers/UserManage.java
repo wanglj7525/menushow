@@ -5,8 +5,9 @@ import java.util.List;
 import models.Shop;
 import models.User;
 import play.mvc.Controller;
+import play.mvc.With;
 import utils.Crypto;
-
+@With(Secure.class)
 public class UserManage extends Controller {
 	public static void index() {
 		render();
@@ -15,8 +16,12 @@ public class UserManage extends Controller {
 	public static void userPage() {
 		List<User> userList = models.UserManage.allInfos();
 		for (User user : userList) {
-			Shop shop=Shop.findById(user.Shopid);
-			user.shopname=shop.Shopname;
+			if (user.Shopid!=null) {
+				Shop shop=Shop.findById(user.Shopid);
+				user.shopname=shop.Shopname;
+			}else{
+				user.shopname="无代理商";
+			}
 		}
 		List<Shop> shopList = Shop.findAll();
 		render(userList,shopList);
